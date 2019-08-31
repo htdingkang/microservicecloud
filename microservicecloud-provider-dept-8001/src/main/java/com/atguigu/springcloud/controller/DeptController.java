@@ -19,6 +19,8 @@ public class DeptController
 {
 	@Autowired
 	private DeptService service;
+	@Autowired
+	private DiscoveryClient client;
 
 	@RequestMapping(value = "/dept/add", method = RequestMethod.POST)
 	public boolean add(@RequestBody Dept dept)
@@ -38,6 +40,15 @@ public class DeptController
 		return service.list();
 	}
 
-
+	@RequestMapping(value = "/dept/discovery",method=RequestMethod.GET)
+	public Object discovery(){
+		List<String> list=client.getServices();
+		System.out.println("=========="+list);
+		List<ServiceInstance> serviceInstances=client.getInstances("MICROSERVICECLOUD-DEPT");
+		for (ServiceInstance element:serviceInstances){
+			System.out.println(element.getServiceId()+","+element.getHost()+","+element.getPort()+","+element.getUri());
+		}
+		return this.client;
+	}
 
 }

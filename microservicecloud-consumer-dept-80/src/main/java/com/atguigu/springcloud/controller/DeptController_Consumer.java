@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 public class DeptController_Consumer {
-    public static final String REST_URL_PREFIX="http://localhost:8001";
+    public static final String REST_URL_PREFIX="http://192.168.1.123:8001";
     @Autowired
     RestTemplate restTemplate;
     @RequestMapping("/consumer/dept/add")
@@ -29,4 +29,8 @@ public class DeptController_Consumer {
         return restTemplate.getForObject(REST_URL_PREFIX+"/dept/list",List.class);
     }
 
+    @RequestMapping("/consumer/dept/discovery")
+    public Object discovery(){
+        return restTemplate.getForObject(REST_URL_PREFIX+"/dept/discovery",Object.class);
+    }
 }

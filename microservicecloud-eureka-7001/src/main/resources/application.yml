@@ -1,0 +1,13 @@
+server:
+  port: 7001
+
+
+eureka:
+  instance:
+    hostname: 192.168.1.123     #Eureka服务端实例名称
+
+  client:
+    register-with-eureka: false       #不需要向注册中心注册自己
+    fetch-registry: false             #不需要去检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   # 设置与Eureka Service交互的地址查询服务和注册服务
