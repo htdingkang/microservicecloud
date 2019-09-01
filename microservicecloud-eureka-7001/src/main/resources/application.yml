@@ -4,10 +4,11 @@ server:
 
 eureka:
   instance:
-    hostname: 192.168.1.123     #Eureka服务端实例名称
+    hostname: eureka7001.com     #Eureka服务端实例名称,hosts绑定了域名
 
   client:
     register-with-eureka: false       #不需要向注册中心注册自己
     fetch-registry: false             #不需要去检索服务
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   # 设置与Eureka Service交互的地址查询服务和注册服务
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   # 设置与Eureka Service交互的地址查询服务和注册服务
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/   #集群模式，各个eureka之间需要感知
