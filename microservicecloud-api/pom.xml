@@ -19,6 +19,12 @@
             <version>1.18.8</version>
         </dependency>
 
+        <!-- Feign相关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
     </dependencies>
 
 

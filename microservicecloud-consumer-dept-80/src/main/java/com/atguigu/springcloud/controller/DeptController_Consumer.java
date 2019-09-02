@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@EnableEurekaClient
 public class DeptController_Consumer {
     //public static final String REST_URL_PREFIX="http://192.168.1.123:8001";
     public static final String REST_URL_PREFIX="http://microservicecloud-dept";
