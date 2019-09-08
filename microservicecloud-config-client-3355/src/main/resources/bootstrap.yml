@@ -1,0 +1,11 @@
+##springcloud会创建一个'Bootstrap Context'，作为Spring应用的'Application Context'的父上下文。
+##初始化的时候'Bootstrap Context' 负责从外部加载配置并解析，这两个上下文共享一个'Environment'
+##bootstrap属性有高优先级，默认情况下，他不会被本地文件覆盖。
+
+spring:
+  cloud:
+    config:
+      name: microservicecloud-config-client  # 需要从github上读取的资源名称，注意没有yml后缀名
+      profile: dev
+      label: master
+      uri: http://config-server.com:3344   #本服务启动后先去找3344服务，通过springcloud config获取github地址
